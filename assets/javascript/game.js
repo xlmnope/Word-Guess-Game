@@ -15,6 +15,7 @@ for (var i = 0; i < randomWord.length; i++) {
 document.getElementById("blankspaces").innerHTML = unknownWord.join(' ');
 
 var guessesRemaining = 10;
+document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 var guessedLetters = [];
 
 //on click of button create event, dont reload the page
@@ -51,38 +52,24 @@ function guess(letter) {
   } else {
     console.log("you guessed wrong, try again"); //make this html error later
   }
+
+  // end game if guessesRemaining is 0
+  if (guessesRemaining <= 0) {
+    alert("Game Over, try again!");
+    location.reload();
+  } 
+
 }
 
 
+// NOTWORKING - end game if guessesRemaining is 0
 
-//console.error('//');
-//console.error('//')
 
-//guess('e')
-//guess('i')
-//guess('o')
-//guess('u')
-//guess('a')
 
-// add letters to array if customer already typed them in
-//// display the letters the customer types in in "already guessed" area
 //// if letter is already in the array display an error message 
-/*
-//scoring
-/// create variable for guessesRemaining start it at a number
-var guessesRemaining = 5;
-var buttonclick = $(".btn-submit");
-buttonclick.on("click", function (event) {
-  guessesRemaining = guessesRemaining--;
-  console.log(guessesRemaining);
-})
-*/
-// reduce number by one when customer guesses letter that they haven't guessed before
-// end game if guessesRemaining is 0
 
 
-// if letter customer typed is a letter in the word, display the letter in the correct position
-//// change the array to get rid of the _??
+
 
 //add songs
 //create events for gameWin and gameLose
