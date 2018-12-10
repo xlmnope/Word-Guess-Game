@@ -33,6 +33,28 @@ document.getElementById("btn-submit").addEventListener("click", function(event){
   document.getElementById("guessed-letters").innerHTML = guessedLetters;
 });
 
+//testing different button/form field
+function test(){
+  var letter = document.getElementById('Guesslettersfieldtest').value;
+  //set variable to get index of letter in guessedLetters array
+  const guessedLettersIndex = guessedLetters.indexOf(letter);
+  console.log(guessedLettersIndex);
+  //if letter is already guessed display error message
+  if (guessedLettersIndex !== -1) {
+    //show error message
+    console.log("letter already guessed")
+  } 
+  else {
+    guessesRemaining--;
+    console.log(guessesRemaining);
+    document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
+    document.getElementById("Guesslettersfield").value = "";
+    console.log(letter);
+    guess(letter);
+    document.getElementById("guessed-letters").innerHTML = guessedLetters;
+  }
+};
+
 
 //event check what letter they typed and 
 function guess(letter) {
@@ -62,7 +84,6 @@ function guess(letter) {
 }
 
 
-// NOTWORKING - end game if guessesRemaining is 0
 
 
 
