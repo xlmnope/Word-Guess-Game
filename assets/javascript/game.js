@@ -19,7 +19,6 @@ document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 var guessedLetters = [];
 
 //on click of button create event, dont reload the page
-//guessesReamining  to decrease  w the clicks 
 document.getElementById("btn-submit").addEventListener("click", function(event){
   event.preventDefault();
   console.log("click");
@@ -33,22 +32,24 @@ document.getElementById("btn-submit").addEventListener("click", function(event){
   document.getElementById("guessed-letters").innerHTML = guessedLetters;
 });
 
-//testing different button/form field
+//function that happens when button clicked
 function test(){
   var letter = document.getElementById('Guesslettersfieldtest').value;
   //set variable to get index of letter in guessedLetters array
-  const guessedLettersIndex = guessedLetters.indexOf(letter);
-  console.log(guessedLettersIndex);
+  const guessedLettersIndexLower = guessedLetters.indexOf(letter.toLowerCase());
+  const guessedLettersIndexUpper = guessedLetters.indexOf(letter.toUpperCase());
+  console.log(guessedLettersIndexLower, guessedLettersIndexUpper);
   //if letter is already guessed display error message
-  if (guessedLettersIndex !== -1) {
+  if (guessedLettersIndexLower !== -1 || guessedLettersIndexUpper !== -1) {
     //show error message
-    console.log("letter already guessed")
+    console.log("letter already guessed") //make html error later
   } 
   else {
+    //guessesReamining  to decrease  w the clicks 
     guessesRemaining--;
     console.log(guessesRemaining);
     document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
-    document.getElementById("Guesslettersfield").value = "";
+    document.getElementById("Guesslettersfieldtest").value = "";
     console.log(letter);
     guess(letter);
     document.getElementById("guessed-letters").innerHTML = guessedLetters;
