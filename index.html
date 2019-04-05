@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   </head>
   <body>
@@ -29,7 +30,18 @@
                 <div class="form-group">
                     <label for="Guesslettersfieldtest">Guess a letter! </label>
                     <input type="text" id="Guesslettersfieldtest" pattern="[A-Za-z]{1}" required title="Must only contain 1 letter, no numbers or special characters">
+                   
+                   
                     <input type="submit" class="btn btn-primary mb-2" id="test" value="Submit">
+                    <div class="already-guessed">
+                      Looks like you have already guessed this letter, guess another!
+                    </div>
+                    <div class="in-word">
+                      Yes! You guessed a correct letter!
+                    </div>
+                    <div class="not-inword">
+                      Ah sorry, this letter is not in the word, guess again! 
+                    </div>
                   </div>
             </form>
             

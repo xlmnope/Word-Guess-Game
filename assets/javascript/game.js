@@ -1,6 +1,10 @@
 
+
+
+
+
 // create array with different quess words
-var words = ["Tiger", "Bull", "Hammerhead", "Goblin", "Mako", "Blue", "Lemon", "Basking", "Megamouth", "Prehistoric"];
+var words = ["Tiger", "Goblin", "Mako", "Blue", "Lemon", "Basking"];
 
 
 //chose random word from array 
@@ -18,9 +22,9 @@ var guessesRemaining = 10;
 document.getElementById("guesses-remaining").innerHTML = guessesRemaining;
 var guessedLetters = [];
 
-//on click of button create event, dont reload the page
 document.getElementById("btn-submit").addEventListener("click", function(event){
   event.preventDefault();
+
   console.log("click");
   guessesRemaining--;
   console.log(guessesRemaining);
@@ -39,10 +43,15 @@ function test(){
   const guessedLettersIndexLower = guessedLetters.indexOf(letter.toLowerCase());
   const guessedLettersIndexUpper = guessedLetters.indexOf(letter.toUpperCase());
   console.log(guessedLettersIndexLower, guessedLettersIndexUpper);
+  $(".already-guessed").hide();
+  $(".in-word").hide();
+  $(".not-inword").hide();
   //if letter is already guessed display error message
   if (guessedLettersIndexLower !== -1 || guessedLettersIndexUpper !== -1) {
     //show error message
+    $(".already-guessed").show();
     console.log("letter already guessed") //make html error later
+
   } 
   else {
     //guessesReamining  to decrease  w the clicks 
@@ -66,14 +75,22 @@ function guess(letter) {
   guessedLetters.push(letter);
   console.log(guessedLetters);
   document.getElementById("guessed-letters").innerHTML = guessedLetters;
+ 
 
   //check if letter is in word
   if (guessIndex !== -1) {
     //you guessed right, place letter in unkownWord
+    $(".in-word").show();
     unknownWord[guessIndex] = randomWord[guessIndex];
     document.getElementById("blankspaces").innerHTML = unknownWord.join(' ');
+     //check if word is fully guessed
+    if (unknownWord.indexOf("_") == -1 && guessesRemaining > 0){
+      alert("You guessed the word, you win!");
+      location.reload();
+    }
   } else {
-    console.log("you guessed wrong, try again"); //make this html error later
+    $(".not-inword").show();
+    console.log("you guessed wrong, try again");
   }
 
   // end game if guessesRemaining is 0
@@ -83,6 +100,8 @@ function guess(letter) {
   } 
 
 }
+
+
 
 
 

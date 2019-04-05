@@ -1,0 +1,23 @@
+.already-guessed{
+display: none;
+width: 100%;
+margin-top: .25rem;
+font-size: 80%;
+color: yellowgreen;
+}
+
+.not-inword{
+  display: none;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: red;
+  }
+
+  .in-word{
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: green;
+    }
